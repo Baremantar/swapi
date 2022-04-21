@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 
-export default function Search({result, setResult, setError}) {
+export default function Search({result, setResult, setError, history, setHistory}) {
 
     const [name, setName] = useState('Luke');
 
-    let n= toString(localStorage.lenght)
+    let n= localStorage.length
 
     async function findByName(event){
         event.preventDefault()
@@ -15,8 +15,8 @@ export default function Search({result, setResult, setError}) {
           const res = json.results[0];
           if (res !== ''){
             setResult(res)
-            localStorage.setItem(++n, res)
-            // console.log(localStorage);
+            localStorage.setItem(++n, JSON.stringify(res))
+            console.log(history);
           } else {
             setResult('')
           }

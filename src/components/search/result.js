@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default function Result({result, error}) {
+export default function Result({result}) {
         
         const value = {result};
-        console.log();
+        
+
         if (value.result !== undefined) {
 
           return (

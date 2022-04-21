@@ -1,11 +1,10 @@
-import React from 'react'
-import {useEffect} from 'react';
+import React, {useEffect, useState} from 'react'
+
 
 export default function history({history,setHistory}) {
 
-    useEffect(() => {setHistory(JSON.parse(localStorage.getItem('history')));}, [])
-    console.log(history);
-
+    useEffect(() => {setHistory({...localStorage})}, [])
+    
   return (
     <div></div>
   )

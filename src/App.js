@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import Search from './components/search/search';
 import Result from './components/search/result';
+import History from './components/history/history';
 function App() {
 
   const [result, setResult] = useState('');
@@ -11,8 +12,9 @@ function App() {
 
   return (
     <div className="App">
-      <Search result={result} setResult={setResult} setError={setError}/>
-      <Result result={result} history={history} setHistory={setHistory} error={error}/>
+      <History history={history} setHistory={setHistory}/>
+      <Search result={result} setResult={setResult} setError={setError} history={history} setHistory={setHistory} />
+      <Result result={result}  error={error}/>
     </div>
   );
 }
