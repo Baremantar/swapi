@@ -1,11 +1,25 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useLayoutEffect, useState } from "react";
 
+export default function history({ history, setHistory }) {
+  const [historyList, setHistoryList] = useState([]);
 
-export default function history({history,setHistory}) {
+  useEffect(() => {
+    for (const [key, value] of Object.entries(history)) {
+      const userName = JSON.parse(value).name;
+      historyList.push(userName);
+    }
+    setHistoryList([...historyList]);
+  }, [history]);
 
-    useEffect(() => {setHistory({...localStorage})}, [])
-    
   return (
-    <div></div>
-  )
+    <div>
+      {historyList ? (
+        historyList.map((item, index) => {
+          return <p key={index}> {item} </p>;
+        })
+      ) : (
+        <></>
+      )}
+    </div>
+  );
 }

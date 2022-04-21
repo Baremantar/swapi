@@ -6,15 +6,14 @@ import History from './components/history/history';
 function App() {
 
   const [result, setResult] = useState('');
-  const [error, setError] = useState();
   const [history, setHistory] = useState([]);
 
 
   return (
     <div className="App">
+      <Search result={result} setResult={setResult} history={history} setHistory={setHistory} />
+      <Result result={result}/>
       <History history={history} setHistory={setHistory}/>
-      <Search result={result} setResult={setResult} setError={setError} history={history} setHistory={setHistory} />
-      <Result result={result}  error={error}/>
     </div>
   );
 }
