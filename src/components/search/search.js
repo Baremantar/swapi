@@ -13,16 +13,16 @@ export default function Search({result, setResult, setError}) {
           setError('')
           const json = await response.json();
           const res = json.results[0];
-          console.log(typeof(n));
-          setResult(res)
-          localStorage.setItem(++n, res)
-          console.log(localStorage);
-          try  {
-            setError('bad name')
-          } 
-          catch (err) {
+          if (res !== ''){
+            setResult(res)
+            localStorage.setItem(++n, res)
+            // console.log(localStorage);
+          } else {
             setResult('')
           }
+
+          
+          
         } else {
           console.log("Ошибка HTTP: " + response.status);
           
