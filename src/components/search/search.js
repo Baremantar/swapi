@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-export default function Search({ result, setResult, history, setHistory }) {
+export default function Search({ result, setResult }) {
   const [name, setName] = useState("Luke");
 
   let n = localStorage.length;
 
-  useEffect(() => {
-    setHistory(localStorage);
-  });
 
   async function findByName(event) {
     event.preventDefault();
@@ -21,7 +18,6 @@ export default function Search({ result, setResult, history, setHistory }) {
       if (res !== "" && res !== undefined) {
         setResult(res);
         localStorage.setItem(++n, JSON.stringify(res));
-        setHistory(localStorage);
       } else {
         setResult("");
       }
